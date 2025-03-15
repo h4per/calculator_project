@@ -1,0 +1,82 @@
+# Calculator
+
+## Description
+This is a Java-based console calculator that supports basic arithmetic operations, advanced functions, and input from both user and files. It also keeps track of calculation history.
+The program provides three main options for calculations:
+1. **Manual expression input** – Users can manually input whatever expression they want to.
+2. **File-Read based expression input** – Users can input file with pre-defined expressions to be calculated.
+3. **History of previously calculated expressions** – Users can check on their prevously calculations.
+
+---
+
+## Features
+- Supports basic operations: `+`, `-`, `*`, `/`, `%`
+- Includes additional functions:
+  - `abs(number)` - Returns absolute value.
+  - `sqrt(number)` - Returns square root.
+  - `power(base, exponent)` - Computes exponentiation.
+  - `round(number)` - Rounds to the nearest integer.
+- Supports both manual input and file input.
+- Maintains a calculation history.
+- Validates expressions and ensures balanced brackets.
+
+---
+
+## How to Use
+
+### Running the Calculator
+1. Compile the program:
+   ```sh
+   javac Calculator.java
+   ```
+2. Run the program:
+   ```sh
+   java Calculator
+   ```
+3. Choose an option from the menu:
+   - `1` - Enter expressions manually
+   - `2` - Read expressions from a file
+   - `3` - View calculation history
+   - `4` - Exit
+
+### Example Usage
+#### Manual Input
+```
+Enter your expression: 5 + (3 * 2) - abs(-7)
+Result: 14
+Do you want to continue? (y/n): y
+```
+
+---
+
+#### File Input
+1. Create a text file (e.g., `input.txt`) with expressions:
+```
+34 + (76 - 45) * 2 - abs(-5)
+sqrt(25) + power(2,3) - round(4.7)
+```
+2. Choose option `2` and enter `input.txt` when prompted.
+
+---
+
+### Example Calculation History
+```
+1) 34 + (76 - 45) * 2 - abs(-5) = 91
+2) sqrt(25) + power(2,3) - round(4.7) = 8
+```
+
+## Error Handling
+- Detects unbalanced brackets.
+- Handles division by zero.
+- Catches invalid inputs and returns error messages.
+
+---
+## Dependencies
+- Java SE (JDK 8+)
+
+---
+
+
+## License
+This project is open-source under the MIT License.
+
