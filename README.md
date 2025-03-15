@@ -58,13 +58,38 @@ sqrt(25) + power(2,3) - round(4.7)
 ```
 2. Choose option `2` and enter `input.txt` when prompted.
 
+---
 
-### Example Calculation History
+### Example output
 ```
-1) 34 + (76 - 45) * 2 - abs(-5) = 91
-2) sqrt(25) + power(2,3) - round(4.7) = 8
-```
+Hello and welcome! This is your calculator! (ﾉ◕ヮ◕)ﾉ*:･ﾟ✧
 
+Here are your options:
+1) Enter expressions manually.
+2) Read expressions from a file.
+3) Check calculation history.
+4) Exit.
+
+Choose one of the options: 1
+
+Enter your expression (´｡• ᵕ •｡): 34+(76-45)*2 - abs(-5)
+(シ_ _)シ Result: 91
+
+Choose one of the options: 2
+Enter the file name (e.g., input.txt): input.txt
+
+Reading your file: input.txt (´｡• ᵕ •｡)
+
+Processing your expression: 5 + 3
+Result: 8
+
+Processing your expression: 34+(76-45)*2 - abs(-5)
+Result: 91
+
+Processing your expression: 9+1*(12*12)-100
+Result: 53
+
+```
 
 ---
 ## Error Handling
