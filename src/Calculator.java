@@ -1,6 +1,6 @@
 // Connecting libraries
+import java.util.ArrayDeque;
 import java.util.ArrayList;
-import java.util.LinkedList;
 import java.util.Scanner;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -12,7 +12,7 @@ public class Calculator {
 
     // Method to check if brackets are balanced
     private static boolean checkBrackets(String userExpression) {
-        LinkedList<Character> bracketStack = new LinkedList<>();
+        ArrayDeque<Character> bracketStack = new ArrayDeque<>();
         for (char c : userExpression.toCharArray()) {
             if (c == '(') {
                 bracketStack.addLast(c);
@@ -41,9 +41,9 @@ public class Calculator {
     }
 
     // Method to convert expression to postfix notation
-    private static LinkedList<String> convertToPostfix(String userExpression) {
-        LinkedList<String> postfixOutput = new LinkedList<>();
-        LinkedList<Character> operatorStack = new LinkedList<>();
+    private static ArrayDeque<String> convertToPostfix(String userExpression) {
+        ArrayDeque<String> postfixOutput = new ArrayDeque<>();
+        ArrayDeque<Character> operatorStack = new ArrayDeque<>();
 
         StringBuilder currentNumber = new StringBuilder();
         int index = 0;
@@ -132,8 +132,8 @@ public class Calculator {
     }
 
     // Method to calculate result from postfix notation
-    private static String calculateFromPostfix(LinkedList<String> postfixExpression) {
-        LinkedList<Double> numberStack = new LinkedList<>();
+    private static String calculateFromPostfix(ArrayDeque<String> postfixExpression) {
+        ArrayDeque<Double> numberStack = new ArrayDeque<>();
 
         for (String operator : postfixExpression) {
             try {
@@ -209,7 +209,7 @@ public class Calculator {
             System.out.print("Error: Unbalanced brackets!!!");
         }
 
-        LinkedList<String> postfix = convertToPostfix(userExpression);
+        ArrayDeque<String> postfix = convertToPostfix(userExpression);
 
         return calculateFromPostfix(postfix);
     }
@@ -217,16 +217,10 @@ public class Calculator {
     // Method for manual expression input
     public static void calculateManually() {
         Scanner input = new Scanner(System.in);
-        System.out.println("\nEnter your expressions here! (´｡• ᵕ •｡)");
 
         while (true) {
-            System.out.print("Enter your expression (or 'history' to see past calculations): ");
+            System.out.print("Enter your expression (´｡• ᵕ •｡): ");
             String userExpression = input.nextLine().trim();
-
-            if (userExpression.equalsIgnoreCase("history")) {
-                showHistory();
-                continue;
-            }
 
             if (userExpression.isEmpty()) {
                 System.out.println("Error: Empty input is not allowed!!!");
@@ -234,7 +228,7 @@ public class Calculator {
             }
 
             String result = calculateExpression(userExpression);
-            System.out.println("Result: " + result);
+            System.out.println("(シ_ _)シ Result: " + result);
             calculationHistory.add(userExpression + " = " + result);
 
             System.out.print("Do you want to continue? (y/n): ");
@@ -263,14 +257,18 @@ public class Calculator {
 
             while (fileScanner.hasNextLine()) {
                 String userExpression = fileScanner.nextLine().trim();
-                if (userExpression.isEmpty()) continue;
+                if (userExpression.isEmpty()){
+                    continue;
+                }
 
-                System.out.println("\nProcessing: " + userExpression);
+                System.out.println("\nProcessing your expression: " + userExpression);
                 String result = calculateExpression(userExpression);
+
                 System.out.println("Result: " + result);
                 calculationHistory.add(userExpression + " = " + result);
             }
             fileScanner.close();
+
         } catch (FileNotFoundException e) {
             System.out.println("Error: File '" + fileName + "' not found!!!");
         }
@@ -282,7 +280,7 @@ public class Calculator {
             System.out.println("\nNo calculations yet. (＃￣0￣)");
         }
         else {
-            System.out.println("\nCalculation History:");
+            System.out.println("\nCalculation history:");
             for (int i = 0; i < calculationHistory.size(); i++) {
                 System.out.println((i + 1) + ") " + calculationHistory.get(i));
             }
@@ -317,7 +315,6 @@ public class Calculator {
                 }
                 else if (userOption == 4) {
                     System.out.println("\nGoodbye! ( ° ∀ ° )ﾉﾞ");
-                    input.close();
                     break;
                 }
                 else {
@@ -325,8 +322,8 @@ public class Calculator {
                 }
             }
             else {
-                System.out.println("Invalid input! Please enter an integer!");
-                input.nextLine();
+                System.out.println("Invalid input! Please enter an integer! ＼(º □ º l|l)/");
+                input.nextLine(); // Clear buffer
             }
         }
     }
