@@ -81,10 +81,10 @@ Result: 91
 
 Processing your expression: 9+1*(12*12)-100
 Result: 53
-
 ```
 
 ---
+
 ## Error Handling
 - Detects unbalanced brackets.
 - Handles division by zero.
@@ -99,4 +99,3 @@ Result: 53
 
 ## License
 This project is open-source under the MIT License.
-
