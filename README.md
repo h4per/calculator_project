@@ -1,4 +1,5 @@
 # Calculator
+<(￣︶￣)>
 
 ## Description
 This is a Java-based console calculator that supports basic arithmetic operations, advanced functions, and input from both user and files. It also keeps track of calculation history.
@@ -57,7 +58,6 @@ sqrt(25) + power(2,3) - round(4.7)
 ```
 2. Choose option `2` and enter `input.txt` when prompted.
 
----
 
 ### Example Calculation History
 ```
@@ -65,6 +65,8 @@ sqrt(25) + power(2,3) - round(4.7)
 2) sqrt(25) + power(2,3) - round(4.7) = 8
 ```
 
+
+---
 ## Error Handling
 - Detects unbalanced brackets.
 - Handles division by zero.
