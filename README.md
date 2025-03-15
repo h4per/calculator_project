@@ -43,25 +43,6 @@ The program provides three main options for calculations:
 ### Example Usage
 #### Manual Input
 ```
-Enter your expression: 5 + (3 * 2) - abs(-7)
-Result: 14
-Do you want to continue? (y/n): y
-```
-
----
-
-#### File Input
-1. Create a text file (e.g., `input.txt`) with expressions:
-```
-34 + (76 - 45) * 2 - abs(-5)
-sqrt(25) + power(2,3) - round(4.7)
-```
-2. Choose option `2` and enter `input.txt` when prompted.
-
----
-
-### Example output
-```
 Hello and welcome! This is your calculator! (ﾉ◕ヮ◕)ﾉ*:･ﾟ✧
 
 Here are your options:
@@ -74,6 +55,18 @@ Choose one of the options: 1
 
 Enter your expression (´｡• ᵕ •｡): 34+(76-45)*2 - abs(-5)
 (シ_ _)シ Result: 91
+```
+
+#### File Input
+1. Create a text file (e.g., `input.txt`) with expressions, and choose option `2` and enter `input.txt` when prompted.
+```
+Hello and welcome! This is your calculator! (ﾉ◕ヮ◕)ﾉ*:･ﾟ✧
+
+Here are your options:
+1) Enter expressions manually.
+2) Read expressions from a file.
+3) Check calculation history.
+4) Exit.
 
 Choose one of the options: 2
 Enter the file name (e.g., input.txt): input.txt
