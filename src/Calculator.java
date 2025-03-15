@@ -61,10 +61,12 @@ public class Calculator {
             if (Character.isDigit(currentChar) || currentChar == '.' || (currentChar == '-' && (index == 0 || userExpression.charAt(index - 1) == '('))) {
                 currentNumber.append(currentChar);
                 index++;
+
                 while (index < userExpression.length() && (Character.isDigit(userExpression.charAt(index)) || userExpression.charAt(index) == '.')) {
                     currentNumber.append(userExpression.charAt(index));
                     index++;
                 }
+
                 postfixOutput.addLast(currentNumber.toString());
                 currentNumber = new StringBuilder();
                 continue;
@@ -123,6 +125,7 @@ public class Calculator {
             }
 
             index++; // Moving index for the next symbols
+
         }
 
         while (!operatorStack.isEmpty()) {
@@ -155,18 +158,20 @@ public class Calculator {
                 else if (operator.equals("/")) {
                     double secondNum = numberStack.removeLast();
                     double firstNum = numberStack.removeLast();
-                    if (secondNum == 0){
-                        System.out.print("Error: Division by zero is not allowed!!!");
+                    double result = firstNum / secondNum;
+                    if (Double.isInfinite(result) || Double.isNaN(result)) {
+                        return "Error: Division by zero is not allowed!!! (シ_ _)シ";
                     }
-                    numberStack.addLast(firstNum / secondNum);
+                    numberStack.addLast(result);
                 }
                 else if (operator.equals("%")) {
                     double secondNum = numberStack.removeLast();
                     double firstNum = numberStack.removeLast();
-                    if (secondNum == 0) {
-                        System.out.print("Error: Modulo by zero is not allowed!!!");
+                    double result = firstNum % secondNum;
+                    if (Double.isInfinite(result) || Double.isNaN(result)) {
+                        return "Error: Division by zero is not allowed!!! (シ_ _)シ";
                     }
-                    numberStack.addLast(firstNum % secondNum);
+                    numberStack.addLast(result);
                 }
                 else if (operator.equals("A")) {
                     double num = numberStack.removeLast();
@@ -175,7 +180,7 @@ public class Calculator {
                 else if (operator.equals("S")) {
                     double num = numberStack.removeLast();
                     if (num < 0){
-                        System.out.print( "Error: Square root of negative number!!!");
+                        return "Error: Square root of negative number!!!";
                     }
                     numberStack.addLast(Math.sqrt(num));
                 }
@@ -192,7 +197,7 @@ public class Calculator {
                     numberStack.addLast(Double.parseDouble(operator));
                 }
             } catch (Exception e) {
-                System.out.print("Error: Invalid input detected!!!");
+                return "Error: Invalid input detected!!!";
             }
         }
         // Getting final result
@@ -206,11 +211,10 @@ public class Calculator {
     // Main calculation method
     private static String calculateExpression(String userExpression) {
         if (!checkBrackets(userExpression)) {
-            System.out.print("Error: Unbalanced brackets!!!");
+            return "Error: Unbalanced brackets!!!";
         }
 
         ArrayDeque<String> postfix = convertToPostfix(userExpression);
-
         return calculateFromPostfix(postfix);
     }
 
@@ -219,7 +223,7 @@ public class Calculator {
         Scanner input = new Scanner(System.in);
 
         while (true) {
-            System.out.print("Enter your expression (´｡• ᵕ •｡): ");
+            System.out.print("\nEnter your expression (´｡• ᵕ •｡): ");
             String userExpression = input.nextLine().trim();
 
             if (userExpression.isEmpty()) {
@@ -231,7 +235,7 @@ public class Calculator {
             System.out.println("(シ_ _)シ Result: " + result);
             calculationHistory.add(userExpression + " = " + result);
 
-            System.out.print("Do you want to continue? (y/n): ");
+            System.out.print("\nDo you want to continue? (y/n): ");
             String userChoice = input.nextLine().trim();
 
             if (userChoice.equalsIgnoreCase("n")) {
