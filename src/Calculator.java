@@ -87,7 +87,7 @@ public class Calculator {
             }
             else if (currentChar == 'p' && userExpression.startsWith("power(", index)) {
                 operatorStack.addLast('P');
-                index += 6;
+                index += 5;
                 continue;
             }
             else if(currentChar == 'r' && userExpression.startsWith("round(", index)) {
