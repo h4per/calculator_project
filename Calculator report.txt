@@ -1,0 +1,26 @@
+Calculator Project
+
+Student: Islam Segizbaev
+Student ID: 240141006
+Group: COMCEH24
+
+Description:
+This is a Java-based console calculator that supports basic arithmetic operations, advanced functions, and input from both user and files. It also keeps track of calculation history. The program provides three main options for calculations:
+
+1) Manual expression input – Users can manually input whatever expression they want to.
+2) File-Read based expression input – Users can input file with pre-defined expressions to be calculated.
+3) History of previously calculated expressions – Users can check on their prevously calculations.
+
+Challenges encountered:
+While working on project, the hardest project I've done, the hardest parts were:
+1) Postfix Conversion – Getting the convertToPostfix method to handle functions like power(base, exp) with commas and brackets was a pain.
+2) Error handling - For me who didn't quite understand the list, set, stack, queue and map implementing algorithms.
+
+Conclusion:
+For this code to work, I read some articles about data manipulation and processing algorithms, rewind what we did in classes, ask LLM to simplify the topics.
+
+Articles:
+https://www.geeksforgeeks.org/evaluation-of-postfix-expression/
+https://www.geeksforgeeks.org/set-in-java/
+https://www.geeksforgeeks.org/arraydeque-in-java/
+https://docs.google.com/presentation/d/1AI-EXJsj18ZGmWdYntXcVgC8RNgFF0PkjeG2zWHXcn8
